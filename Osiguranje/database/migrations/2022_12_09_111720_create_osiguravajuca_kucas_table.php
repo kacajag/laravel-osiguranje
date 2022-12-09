@@ -15,6 +15,10 @@ class CreateOsiguravajucaKucasTable extends Migration
     {
         Schema::create('osiguravajuca_kucas', function (Blueprint $table) {
             $table->id();
+            $table->string('naziv');
+            $table->string('adresa');
+            $table->string('email');
+            $table->string('drzava');
             $table->timestamps();
         });
     }

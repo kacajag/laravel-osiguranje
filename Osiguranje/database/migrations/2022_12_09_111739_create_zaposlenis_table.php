@@ -15,6 +15,11 @@ class CreateZaposlenisTable extends Migration
     {
         Schema::create('zaposlenis', function (Blueprint $table) {
             $table->id();
+            $table->string('ime');
+            $table->string('prezime');
+            $table->string('email');
+            $table->string('pozicija');
+            $table->foreignId('kuca_id')->constrained('osiguravajuca_kucas');
             $table->timestamps();
         });
     }

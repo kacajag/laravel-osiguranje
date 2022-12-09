@@ -15,6 +15,12 @@ class CreateKlijentsTable extends Migration
     {
         Schema::create('klijents', function (Blueprint $table) {
             $table->id();
+            $table->string('ime');
+            $table->string('prezime');
+            $table->string('email');
+            $table->string('grad');
+            $table->foreignId('zaposleni_id')->constrained('zaposlenis');
+
             $table->timestamps();
         });
     }

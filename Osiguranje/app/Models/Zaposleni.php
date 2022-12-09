@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\OsiguravajucaKuca;
+use App\Models\Klijent;
 
 class Zaposleni extends Model
 {
