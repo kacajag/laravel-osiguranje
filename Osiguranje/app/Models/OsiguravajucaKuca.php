@@ -10,6 +10,15 @@ class OsiguravajucaKuca extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'naziv',
+        'adresa',
+        'email',
+        'website',
+        'drzava'
+    ];
+
+
     public function zaposleni(){
         return $this->hasMany(Zaposleni::class);
     }

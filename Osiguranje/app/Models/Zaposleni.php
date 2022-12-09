@@ -11,6 +11,15 @@ class Zaposleni extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ime',
+        'prezime',
+        'email',
+        'pozicija',
+        'broj_kartice',
+        'kuca_id'
+    ];
+
     public function kuca(){
         return $this->belongsTo(OsiguravajucaKuca::class);
     }
