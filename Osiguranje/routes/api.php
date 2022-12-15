@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\OsiguravajucaKucaController;
+use App\Http\Controllers\API\ZaposleniController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('osiguravajuca_kuca', OsiguravajucaKucaController::class);
+Route::resource('zaposleni', ZaposleniController::class);

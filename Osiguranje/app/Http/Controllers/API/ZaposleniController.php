@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Zaposleni;
 use Illuminate\Http\Request;
+use App\Http\Resources\ZaposleniResource;
 
 class ZaposleniController extends Controller
 {
@@ -15,7 +16,9 @@ class ZaposleniController extends Controller
      */
     public function index()
     {
-        //
+        $zaposleni = Zaposleni::all();
+        return ZaposleniResource::collection($zaposleni);
+
     }
 
     /**
@@ -79,8 +82,15 @@ class ZaposleniController extends Controller
      * @param  \App\Models\Zaposleni  $zaposleni
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Zaposleni $zaposleni)
+    public function destroy($id)
     {
-        //
+        $zaposleni = Zaposleni::find($id);
+        if ($zaposleni) {
+            $zaposleni->delete();
+            return response()->json(['Uspesno ste obrisali zaposlenog!', new ZaposleniResource($zaposleni)]);
+        } else {
+            return response()->json('Nije moguce pronaci zaposlenog u bazi po navedenom id-u!');
+        }
+
     }
 }
